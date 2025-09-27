@@ -1,55 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Piedra, Papel o Tijeras</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <h1>¡Juguemos Piedra, Papel o Tijeras!</h1>
 
-    <script>
-    // Elección aleatoria del computador
-    const getComputerChoice = function() {
-      const choices = ["piedra", "papel", "tijera"];
-      const index = Math.floor(Math.random() * choices.length);
-      return choices[index];
-    };
+  <button id="rock">Piedra</button>
+  <button id="paper">Papel</button>
+  <button id="scissors">Tijeras</button>
 
-    // Elección del usuario (por prompt)
-    const getHumanChoice = function() {
-      let choice = prompt("Elige: piedra, papel o tijera").toLowerCase();
-      while (!["piedra", "papel", "tijera"].includes(choice)) {
-        choice = prompt("Entrada inválida. Elige: piedra, papel o tijera").toLowerCase();
-      }
-      return choice;
-    };
+  <div id="result"></div>
+  <div id="score"></div>
 
-    // Función para jugar una ronda
-    const playRound = function(human, computer) {
-      if (human === computer) {
-        return "Empate 🤝";
-      }
-
-      if (
-        (human === "piedra" && computer === "tijera") ||
-        (human === "papel" && computer === "piedra") ||
-        (human === "tijera" && computer === "papel")
-      ) {
-        return `¡Ganaste! ${human} vence a ${computer} 🎉`;
-      } else {
-        return `Perdiste 😢 ${computer} vence a ${human}`;
-      }
-    };
-
-    // Jugar una ronda
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    const result = playRound(humanChoice, computerChoice);
-
-    // Mostrar resultados
-    alert(`Elegiste: ${humanChoice}\nComputadora eligió: ${computerChoice}\n\n${result}`);
-    console.log(result);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
